@@ -1,0 +1,27 @@
+<div class="container">
+    
+    <a href="#" routerLink="/user/create/" class="btn btn-success">Create New User</a>
+      
+    <table class="table table-striped">
+        <thead>
+              <tr>
+                <th>User Id</th>
+                <th>User Name</th>
+                <th>User Email Id</th>
+                <th width="250px">Action</th>
+              </tr>
+        </thead>
+        <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{ user.userId }}</td>
+                <td>{{ user.Username }}</td>
+                <td>{{ user.EmailId }}</td>
+                <td>
+                  <a href="#" [routerLink]="['/user/', user.userId, 'view']" class="btn btn-info">View</a>
+                  <a href="#" [routerLink]="['/user/', user.userId, 'edit']" class="btn btn-primary">Edit</a>
+                  <button type="button" (click)="deleteUser(user.userId)" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+        </tbody>
+    </table>
+ </div>
